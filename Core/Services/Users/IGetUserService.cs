@@ -10,4 +10,6 @@ namespace Core.Services.Users
 
         IEnumerable<User> GetUsers(UserTypes? userType = null, string name = null, string email = null);
     }
+
+
 }
