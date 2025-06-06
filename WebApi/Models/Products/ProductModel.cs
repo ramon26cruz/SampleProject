@@ -1,4 +1,6 @@
-﻿namespace WebApi.Models.Users
+﻿using BusinessEntities;
+
+namespace WebApi.Models.Products
 {
     public class ProductModel
     {

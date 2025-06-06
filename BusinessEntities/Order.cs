@@ -1,14 +1,19 @@
-﻿using System;
+﻿using Common.Extensions;
+using System;
 using System.Collections.Generic;
 
 namespace BusinessEntities
 {
+   
     public class Order : IdObject
     {
+        public Order()
+        {
+            OrderItems =new List<OrderItem>();
+        }
         public DateTimeOffset OrderDate { get; protected set; }
-        public decimal TotalPrice => Product.Price * Quantity;  
-        public Product Product { get; protected set; }
-        public decimal Quantity { get; set; }
+        public List<OrderItem> OrderItems { get; protected set; }
+        public Guid Customer { get; protected set; }
 
         public void SetOrderDate(DateTimeOffset orderDate)
         {
@@ -19,22 +24,21 @@ namespace BusinessEntities
             OrderDate = orderDate;
         }
 
-        public void SetProduct(Product product)
+        public void SetOrderItems(IEnumerable<OrderItem> orderItems)
         {
-            if (product == null)
+            if (orderItems == null)
             {
-                throw new ArgumentNullException("Product was not provided.");
+                throw new ArgumentNullException("OrderItem was not provided.");
             }
-            Product = product;
+            OrderItems.Initialize(orderItems);
         }
-
-        public void SetQuantity(decimal quantity)
+        public void SetCustomer(Guid customer)
         {
-            if (quantity <= 0)
+            if (customer == null)
             {
-                throw new ArgumentOutOfRangeException("Quantity must be greater than zero.");
+                throw new ArgumentNullException("Customer was not provided.");
             }
-            Quantity = quantity;
+            Customer = customer;
         }
     }
     

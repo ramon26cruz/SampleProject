@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e52c90f9-2e06-4135-82d4-04ceb062d7f9",
+		"_postman_id": "361a33ae-6372-44ae-803c-4bf87bcb4f89",
 		"name": "LendingPad-SampleProject",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "4255915"
@@ -370,7 +370,7 @@
 							"response": []
 						},
 						{
-							"name": "GetProduct",
+							"name": "Get Product",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -452,7 +452,143 @@
 				},
 				{
 					"name": "Orders",
-					"item": []
+					"item": [
+						{
+							"name": "Create Order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"orderDate\": \"2025-06-05T14:30:00Z\",\r\n  \"customerId\": \"b1a7e8c2-3f4d-4e2a-9b1c-123456789abc\",\r\n  \"orderItems\": [\r\n    {\r\n      \"id\": \"e2b7c8d9-1a2b-3c4d-5e6f-123456789abc\",\r\n      \"productId\": \"9422740e-6426-4c46-8445-3f5274a62424\",\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n      \"id\": \"f3c8d9e0-2b3c-4d5e-6f7a-123456789abc\",\r\n      \"productId\": \"e63e1de0-0bf0-40cd-a6f6-fa71ce45d099\",\r\n      \"quantity\": 1\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:49834/orders/3f2504e0-4f89-11d3-9a0c-0305e82c3301/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"orders",
+										"3f2504e0-4f89-11d3-9a0c-0305e82c3301",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"orderDate\": \"2025-06-05T14:30:00Z\",\r\n  \"customerId\": \"b1a7e8c2-3f4d-4e2a-9b1c-123456789abc\",\r\n  \"orderItems\": [\r\n    {\r\n      \"id\": \"1d37c417-d421-49ae-8f4b-5e055e4ff9a4\",\r\n      \"productId\": \"9422740e-6426-4c46-8445-3f5274a62424\",\r\n      \"quantity\": 9\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:49834/orders/3f2504e0-4f89-11d3-9a0c-0305e82c3301/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"orders",
+										"3f2504e0-4f89-11d3-9a0c-0305e82c3301",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetOrder",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:49834/orders/3f2504e0-4f89-11d3-9a0c-0305e82c3301",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"orders",
+										"3f2504e0-4f89-11d3-9a0c-0305e82c3301"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Order",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:49834/orders/3f2504e0-4f89-11d3-9a0c-0305e82c3301/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"orders",
+										"3f2504e0-4f89-11d3-9a0c-0305e82c3301",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Order",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:49834/orders/list?skip=0&take=10&customerId=b1a7e8c2-3f4d-4e2a-9b1c-123456789abc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "49834",
+									"path": [
+										"orders",
+										"list"
+									],
+									"query": [
+										{
+											"key": "skip",
+											"value": "0"
+										},
+										{
+											"key": "take",
+											"value": "10"
+										},
+										{
+											"key": "customerId",
+											"value": "b1a7e8c2-3f4d-4e2a-9b1c-123456789abc"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}

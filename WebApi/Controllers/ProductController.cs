@@ -1,12 +1,12 @@
 ﻿using BusinessEntities;
-using Core.Services.Users;
+using Core.Services.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebApi.Models.Users;
+using WebApi.Models.Products;
 
 namespace WebApi.Controllers
 {
@@ -27,7 +27,7 @@ namespace WebApi.Controllers
 
         [Route("{productId:guid}/create")]
         [HttpPost]
-        public HttpResponseMessage Create(Guid productId, [FromBody] ProductModel model)
+        public HttpResponseMessage CreateProduct(Guid productId, [FromBody] ProductModel model)
         {
             var product = _createProductService.Create(productId, model.Name, model.Price, model.Description);
             return Found(new ProductData(product));
@@ -35,7 +35,7 @@ namespace WebApi.Controllers
 
         [Route("{productId:guid}/update")]
         [HttpPost]
-        public HttpResponseMessage Update(Guid productId, [FromBody] ProductModel model)
+        public HttpResponseMessage UpdateProduct(Guid productId, [FromBody] ProductModel model)
         {
             var product = _getProductService.GetProduct(productId);
             if (product == null)
@@ -73,7 +73,7 @@ namespace WebApi.Controllers
 
         [Route("list")]
         [HttpGet]
-        public HttpResponseMessage Get(int skip, int take, decimal minPrice, decimal maxPrice)
+        public HttpResponseMessage GetProducts(int skip, int take, decimal minPrice, decimal maxPrice)
         {
             var products = _getProductService.GetProducts(minPrice, maxPrice)
                                        .Skip(skip).Take(take)

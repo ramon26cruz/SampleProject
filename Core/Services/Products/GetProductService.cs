@@ -4,7 +4,7 @@ using BusinessEntities;
 using Common;
 using Data.Repositories;
 
-namespace Core.Services.Users
+namespace Core.Services.Products
 {
     [AutoRegister(AutoRegisterTypes.Singleton)]
     public class GetProductService : IGetProductService

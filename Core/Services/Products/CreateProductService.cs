@@ -4,7 +4,7 @@ using Common;
 using Core.Factories;
 using Data.Repositories;
 
-namespace Core.Services.Users
+namespace Core.Services.Products
 {
     [AutoRegister(AutoRegisterTypes.Singleton)]
     public class CreateProductService : ICreateProductService
